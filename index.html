@@ -255,10 +255,16 @@
       margin: 0;
     }
 
+    .table-scroll {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+
     table {
       width: 100%;
       border-collapse: collapse;
       font-size: 0.95rem;
+      min-width: 640px;
     }
 
     th, td {
@@ -308,6 +314,76 @@
 
     @media (max-width: 760px) {
       .two-col { grid-template-columns: 1fr; }
+    }
+
+    .project {
+      padding: 1.5rem 0 0.25rem;
+      border-top: 1px solid var(--line);
+    }
+
+    .project-id {
+      font-family: "Syne", sans-serif;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--leaf);
+      margin: 0 0 0.4rem;
+    }
+
+    .project h3 {
+      font-family: "Syne", sans-serif;
+      font-size: clamp(1.4rem, 3vw, 1.75rem);
+      letter-spacing: -0.02em;
+      margin: 0 0 1rem;
+    }
+
+    .spec {
+      display: grid;
+      gap: 0.65rem;
+      margin: 0 0 1rem;
+    }
+
+    .spec-row {
+      display: grid;
+      grid-template-columns: 7.5rem 1fr;
+      gap: 0.75rem;
+      align-items: start;
+    }
+
+    @media (max-width: 560px) {
+      .spec-row { grid-template-columns: 1fr; gap: 0.15rem; }
+    }
+
+    .spec-row dt {
+      margin: 0;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--soft);
+      padding-top: 0.15rem;
+    }
+
+    .spec-row dd {
+      margin: 0;
+    }
+
+    .do-dont {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+      margin-top: 0.5rem;
+    }
+
+    @media (max-width: 700px) {
+      .do-dont { grid-template-columns: 1fr; }
+    }
+
+    .do-dont h4 {
+      margin: 0 0 0.5rem;
+      font-family: "Syne", sans-serif;
+      font-size: 0.95rem;
     }
 
     /* Checklist — interactive, so containers are OK */
@@ -423,106 +499,229 @@
     </div>
     <div class="hero-inner">
       <p class="brand">Bonsai</p>
-      <h1>A Melbourne grow plan for your garage stock</h1>
-      <p>Budget soil and pots, stem and root work, training, fertiliser, and a forest — tuned for local seasons and 60–90 cm trees.</p>
+      <h1>Three projects. Start in October. Build by season.</h1>
+      <p>Phase 0 begins now (Oct 2026): sort, harden outdoors, set up grow boxes. Elm and oak get their heavy build in Aug–mid Sep 2027; feijoa follows an evergreen spring window.</p>
       <div class="cta-row">
-        <a class="btn btn-primary" href="#species">See what you have</a>
-        <a class="btn btn-ghost" href="#fortnight">Start this fortnight</a>
+        <a class="btn btn-primary" href="#projects">See the three projects</a>
+        <a class="btn btn-ghost" href="#phase0">Start Phase 0 this week</a>
       </div>
     </div>
   </header>
 
   <main>
-    <section id="species" class="reveal">
-      <div class="wrap split">
-        <div>
-          <p class="kicker">Identification</p>
-          <h2>Three plants, three jobs</h2>
-          <p class="lede">Close-ups lock this in well enough to train. Keep species separate for forest work — same kind together, different kinds alone.</p>
-          <div class="species">
-            <div class="species-item">
-              <p class="meta">Group A</p>
-              <div>
-                <h3>Chinese elm <em>(Ulmus parvifolia)</em></h3>
-                <p>Small oval leaves with fine serrations on thin, wiry stems. Several pots — your forest material.</p>
-                <span class="tag">Forest + 60–90 cm specimens</span>
-              </div>
+    <section id="projects" class="reveal">
+      <div class="wrap">
+        <p class="kicker">Projects</p>
+        <h2>What you are building</h2>
+        <p class="lede">Not “some bonsai someday” — three named outcomes. Loquat is out of scope. Never mix species in one pot.</p>
+
+        <article class="project" id="project-elm">
+          <p class="project-id">Project 1</p>
+          <h3>Elm forest</h3>
+          <dl class="spec">
+            <div class="spec-row">
+              <dt>Goal</dt>
+              <dd>One Chinese elm forest (yose-ue) that reads as a small grove from 2 metres away, finished height about <strong>60–90 cm</strong>.</dd>
             </div>
-            <div class="species-item">
-              <p class="meta">Group B</p>
-              <div>
-                <h3>English oak <em>(Quercus robur)</em></h3>
-                <p>Deeply lobed leaves, taller pencil trunks. Slower than elm; better as individual trees than mixed forest.</p>
-                <span class="tag">Solo upright · larger leaf scale</span>
-              </div>
+            <div class="spec-row">
+              <dt>Material</dt>
+              <dd>Only matching Chinese elms <em>(Ulmus parvifolia)</em> — small serrated oval leaves, thin wiry stems. Use <strong>5 or 7</strong> of the best pots. Extra elms = backups / future solos.</dd>
             </div>
-            <div class="species-item">
-              <p class="meta">Group C</p>
-              <div>
-                <h3>Large-leaf evergreen — likely loquat <em>(Eriobotrya japonica)</em></h3>
-                <p>Big glossy serrated leaves in the barky nursery mix. Keep as one specimen; leaf reduction takes years. If you snap a leaf and get milky sap, tell me — that would shift ID toward fig.</p>
-                <span class="tag">Solo · frost-aware</span>
-              </div>
+            <div class="spec-row">
+              <dt>Done when</dt>
+              <dd>Trees share one container; heights are tiered (hero / mid / low); trunks have visible girth; you can tip-prune pads instead of growing raw whips.</dd>
             </div>
+            <div class="spec-row">
+              <dt>Oct now</dt>
+              <dd>Sort &amp; label elms, harden outdoors, keep in nursery pots or step into a shared grow box <em>without</em> heavy root cutting, light tip prune, dilute feed if healthy.</dd>
+            </div>
+            <div class="spec-row">
+              <dt>Defer</dt>
+              <dd>Full root prune, final forest spacing, heavy trunk chops → <strong>Aug–mid Sep 2027</strong>.</dd>
+            </div>
+          </dl>
+        </article>
+
+        <article class="project" id="project-oak">
+          <p class="project-id">Project 2</p>
+          <h3>Oak solos</h3>
+          <dl class="spec">
+            <div class="spec-row">
+              <dt>Goal</dt>
+              <dd>Each English oak as its <strong>own</strong> informal-upright tree, finished about <strong>60–90 cm</strong> with a thicker trunk than today’s pencil whip.</dd>
+            </div>
+            <div class="spec-row">
+              <dt>Material</dt>
+              <dd>English oak <em>(Quercus robur)</em> — deeply lobed leaves. One project per oak pot. Never plant into the elm forest.</dd>
+            </div>
+            <div class="spec-row">
+              <dt>Done when</dt>
+              <dd>Trunk shows taper; a clear front; lower branches planned; leaf size still large but tree proportions read as a miniature oak, not a stick.</dd>
+            </div>
+            <div class="spec-row">
+              <dt>Oct now</dt>
+              <dd>Label each oak, harden outdoors, optional upsize into a larger grow pot with only light teasing of outer roots (no hard root prune), let a top leader run to thicken the trunk.</dd>
+            </div>
+            <div class="spec-row">
+              <dt>Defer</dt>
+              <dd>Structural trunk chop and serious root work → <strong>Aug–mid Sep 2027</strong>.</dd>
+            </div>
+          </dl>
+        </article>
+
+        <article class="project" id="project-feijoa">
+          <p class="project-id">Project 3</p>
+          <h3>Feijoa solo</h3>
+          <dl class="spec">
+            <div class="spec-row">
+              <dt>Goal</dt>
+              <dd>One feijoa (pineapple guava) as a <strong>solo evergreen bonsai</strong>, finished about <strong>60–90 cm</strong> — informal upright or multi-trunk shrub-tree look.</dd>
+            </div>
+            <div class="spec-row">
+              <dt>Material</dt>
+              <dd>Feijoa <em>(Acca sellowiana)</em> — oval leaves, green on top, <strong>silvery felt underneath</strong>. Melbourne-hardy evergreen. Solo only — never into the elm forest.</dd>
+            </div>
+            <div class="spec-row">
+              <dt>Done when</dt>
+              <dd>Clear trunk line and front; denser branching after tip work; still may flower/fruit at this size (bonus, not required).</dd>
+            </div>
+            <div class="spec-row">
+              <dt>Oct now</dt>
+              <dd>Label <code>P3-Feijoa</code>, harden outdoors, full sun once toughened, dilute feed (spring is its growth window), light tip prune only. Optional gentle slip-pot if rootbound.</dd>
+            </div>
+            <div class="spec-row">
+              <dt>Defer</dt>
+              <dd>Hard root prune → <strong>early spring Sep 2027</strong> (evergreen window, not mid-winter). Bigger structure prune after flowering/fruit if you want blooms first, or Sep with root work if shaping first.</dd>
+            </div>
+          </dl>
+        </article>
+
+        <div class="split" style="margin-top: 2rem;">
+          <figure>
+            <div class="photo-frame">
+              <img src="assets/feijoa.jpg" alt="Feijoa leaves showing green tops and silver undersides" />
+            </div>
+            <figcaption class="caption">Project 3 — silver leaf undersides = feijoa</figcaption>
+          </figure>
+          <div>
+            <p class="kicker">ID cheat sheet</p>
+            <h2>How to split the pile</h2>
+            <ul class="stack-list">
+              <li><strong>Elm → Project 1:</strong> tiny oval leaves, fine teeth, wiry stems.</li>
+              <li><strong>Oak → Project 2:</strong> big lobed leaves, straighter whip trunks.</li>
+              <li><strong>Feijoa → Project 3:</strong> oval leaves with silver/white undersides.</li>
+              <li><strong>Loquat → not a project:</strong> large glossy serrated leaves — set aside.</li>
+            </ul>
           </div>
         </div>
-        <figure>
-          <div class="photo-frame">
-            <img src="assets/leaves-elm-oak.jpg" alt="Close-up of Chinese elm leaves beside oak leaves" />
+      </div>
+    </section>
+
+    <section id="phase0" class="reveal">
+      <div class="wrap">
+        <p class="kicker">Phase 0 · October 2026</p>
+        <h2>Start this week — then follow the calendar</h2>
+        <p class="lede">Yes, you can start in October. Open all three projects in <strong>establishment mode</strong>, not styling mode. Tick as you go (saved in this browser).</p>
+
+        <div class="do-dont">
+          <div>
+            <h4>Do now (Oct–Nov)</h4>
+            <ul class="stack-list">
+              <li>Harden outdoors over 3–5 days</li>
+              <li>Sort into Elm / Oak / Feijoa; label P1 / P2 / P3</li>
+              <li>Buy grow box + budget soil parts</li>
+              <li>Water when top ~2 cm is dry</li>
+              <li>Light tip prune only (pinch long soft tips)</li>
+              <li>Dilute seaweed/fish every 2 weeks if growth looks healthy</li>
+            </ul>
           </div>
-          <figcaption class="caption">Elm (small serrated) left · oak (lobed) right</figcaption>
-        </figure>
+          <div>
+            <h4>Hold for the build windows</h4>
+            <ul class="stack-list">
+              <li>Heavy trunk chops (P1/P2 → Aug–mid Sep 2027)</li>
+              <li>Hard root pruning / bare-rooting</li>
+              <li>Final forest composition chops</li>
+              <li>Tiny ceramic “bonsai pots”</li>
+              <li>P3 hard root work → Sep 2027 (evergreen), not mid-winter frost</li>
+            </ul>
+          </div>
+        </div>
+
+        <h3 style="font-family: Syne, sans-serif; margin: 2rem 0 0.75rem;">Phase 0 checklist</h3>
+        <div class="checks" id="checklist">
+          <label class="check"><input type="checkbox" data-k="p0-1" /><span><strong>Day 1–5:</strong> Move all project pots outdoors gradually (morning sun → more light). Keep loquat out of the project piles.</span></label>
+          <label class="check"><input type="checkbox" data-k="p0-2" /><span><strong>Day 1:</strong> Label every pot <code>P1-Elm</code>, <code>P2-Oak</code>, or <code>P3-Feijoa</code>. Count elms — pick your best 5 or 7 for the forest shortlist.</span></label>
+          <label class="check"><input type="checkbox" data-k="p0-3" /><span><strong>This week:</strong> Grow box + mesh for P1; larger grow pot each for P2 oaks and P3 feijoa (or keep current pots until build).</span></label>
+          <label class="check"><input type="checkbox" data-k="p0-4" /><span><strong>This week:</strong> Mix budget soil (2 pine bark : 2 scoria/blue metal : 1 coarse sand) and store dry in a tub.</span></label>
+          <label class="check"><input type="checkbox" data-k="p0-5" /><span><strong>Optional Oct pot-up:</strong> If roots circle at the drain holes, slip-pot with fresh mix on the sides only — do not cut the root ball hard.</span></label>
+          <label class="check"><input type="checkbox" data-k="p0-6" /><span><strong>Ongoing:</strong> Water, elevate off hot concrete, light tip prune; photograph each project monthly (P3 may flower late spring — note that for prune timing).</span></label>
+        </div>
+        <p class="note">After Phase 0, follow the season map. P1 and P2 share the Aug–mid Sep 2027 build; P3’s hard root build is early spring Sep 2027.</p>
       </div>
     </section>
 
     <section id="calendar" class="reveal">
       <div class="wrap">
-        <p class="kicker">Melbourne weather</p>
-        <h2>Work the seasons, not the northern books</h2>
-        <p class="lede">Cool winters with frost risk, hot dry summers, and sharp spring growth. Deciduous elm and oak want a real outdoor winter chill. Garage storage is fine short-term; permanent indoor life is not.</p>
+        <p class="kicker">Plan by season</p>
+        <h2>From October start → first build</h2>
+        <p class="lede">All three live outdoors after hardening. P1/P2 are deciduous (late-winter build). P3 is evergreen (spring build).</p>
+        <div class="table-scroll">
         <table>
           <thead>
             <tr>
-              <th>Window</th>
-              <th>Months</th>
-              <th>Do</th>
-              <th>Don’t</th>
+              <th>Phase</th>
+              <th>When</th>
+              <th>P1 · Elm forest</th>
+              <th>P2 · Oak solos</th>
+              <th>P3 · Feijoa</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td>Late winter</td>
-              <td>Aug – mid Sep</td>
-              <td>Root prune &amp; repot elm/oak; heavy trunk chops before buds open</td>
-              <td>Major root work after leaves harden</td>
+              <td>0 · Start</td>
+              <td>Oct – Nov 2026</td>
+              <td>Sort 5–7, harden, tip prune, prep grow box</td>
+              <td>Label, harden, let leader run, optional slip-pot</td>
+              <td>Label, harden to sun, dilute feed, light tip prune</td>
             </tr>
             <tr>
-              <td>Spring</td>
-              <td>Sep – Nov</td>
-              <td>Wire carefully; start dilute fertiliser after recovery; harden into full sun</td>
-              <td>Full-strength feed on freshly cut roots</td>
+              <td>1 · Summer</td>
+              <td>Dec 2026 – Feb 2027</td>
+              <td>Water in heat; tip prune; no repot</td>
+              <td>Same; sacrifice leader; shade on 35°C+</td>
+              <td>Steady water (fruit set possible); no hard root work</td>
             </tr>
             <tr>
-              <td>Summer</td>
-              <td>Dec – Feb</td>
-              <td>Daily water checks; raise pots off hot concrete; light tip prune</td>
-              <td>Repotting; heatwave fertiliser</td>
+              <td>2 · Autumn</td>
+              <td>Mar – May 2027</td>
+              <td>Tag hero/mid/low; reduce feed</td>
+              <td>Choose front; reduce feed</td>
+              <td>Note fruit; light clean-up prune after harvest if any</td>
             </tr>
             <tr>
-              <td>Autumn</td>
-              <td>Mar – May</td>
-              <td>Structural wire on firmer wood; taper nitrogen</td>
-              <td>Big chops that push soft growth into frost</td>
+              <td>3 · Winter plan</td>
+              <td>Jun – Jul 2027</td>
+              <td>Sketch forest layout; roots moist</td>
+              <td>Sketch chop height; roots moist</td>
+              <td>Plan front; protect from hard frost if exposed</td>
             </tr>
             <tr>
-              <td>Winter</td>
-              <td>Jun – Jul</td>
-              <td>Study silhouette; keep roots barely moist; plan cuts</td>
-              <td>Letting pots freeze bone-dry</td>
+              <td>4 · Build</td>
+              <td>Aug – Sep 2027</td>
+              <td><strong>Aug–mid Sep:</strong> root tease, assemble forest, staggered chops</td>
+              <td><strong>Aug–mid Sep:</strong> root work + first trunk chop</td>
+              <td><strong>Sep:</strong> hard root prune into grow pot; structure prune if shaping now</td>
+            </tr>
+            <tr>
+              <td>5 · Grow</td>
+              <td>2027 – 2029+</td>
+              <td>Thicken, refine pads, later shallower pot</td>
+              <td>Sacrifice growth → refine to 60–90 cm</td>
+              <td>Tip prune for density; wire sparingly on young wood</td>
             </tr>
           </tbody>
         </table>
-        <p class="note">Loquat / frost-tender evergreen: delay heavy root and trunk work until nights are reliably mild (often mid–late spring in Melbourne).</p>
+        </div>
       </div>
     </section>
 
@@ -566,10 +765,10 @@
           <h2>Chop for taper, then densify</h2>
           <p class="lede">Most of these are tall whips already near your finished height — but without trunk thickness. Height without taper reads as a stick, not a tree.</p>
           <ul class="stack-list">
-            <li><strong>Elm forest:</strong> late winter, cut most trees to staggered heights (low / mid / hero). Leave a node facing the next leader.</li>
-            <li><strong>Oak:</strong> one strong structural chop per year; leave a sacrifice leader higher up to thicken the trunk, then cut it later.</li>
-            <li><strong>Loquat:</strong> lighter first year; remove only awkward shoots until ID/habit is settled; spring timing.</li>
-            <li><strong>Maintenance:</strong> after flush, prune back to 2–3 leaf pairs on strong shoots; remove bar branches.</li>
+            <li><strong>P1 Elm (Aug 2027):</strong> staggered chops — low / mid / hero. Leave a node facing the next leader.</li>
+            <li><strong>P2 Oak (Aug 2027):</strong> one structural chop; until then let a sacrifice leader run to thicken the trunk.</li>
+            <li><strong>P3 Feijoa (Sep 2027 / after fruit):</strong> shorten long legs; keep silver undersides visible in the silhouette — tip prune for density.</li>
+            <li><strong>Oct–summer maintenance (all):</strong> tip prune long soft shoots only.</li>
           </ul>
         </div>
         <figure>
@@ -594,7 +793,7 @@
             <tr>
               <td>1. Timing</td>
               <td>Repot young trees every 1–2 years</td>
-              <td>Elm/oak: Aug–early Sep. Frost-tender evergreen: milder spring.</td>
+              <td>P1/P2: Aug–early Sep. P3 feijoa: Sep (evergreen) — avoid mid-winter hard root work.</td>
             </tr>
             <tr>
               <td>2. Unpot</td>
@@ -653,60 +852,43 @@
           <div class="photo-frame">
             <img src="assets/group-overview.jpg" alt="Overview of nursery pots including elm and oak saplings" />
           </div>
-          <figcaption class="caption">Sort by species before any group planting</figcaption>
+          <figcaption class="caption">Project 1 material — sort elms before Aug 2027 assembly</figcaption>
         </figure>
         <div>
-          <p class="kicker">Bonsai forest</p>
-          <h2>Elms only — odd numbers</h2>
-          <p class="lede">Use the matching Chinese elms for yose-ue. Keep oaks and the large-leaf plant as solos. Start with 5 or 7 trees.</p>
+          <p class="kicker">Project 1 · layout (use at build)</p>
+          <h2>Forest rules for Aug 2027</h2>
+          <p class="lede">Ignore this until Phase 4 — but tag trees in autumn so build day is fast.</p>
           <ul class="stack-list">
             <li>Tallest tree slightly off-centre (not dead middle).</li>
             <li>Cluster the next tallest nearby — a grove, not a fence line.</li>
-            <li>Shorter trees toward the front and edges; leave a clearing of negative space.</li>
+            <li>Shorter trees toward the front and edges; leave a clearing.</li>
             <li>Vary lean; avoid parallel trunks.</li>
             <li>Plant on a slight soil mound so flares can develop.</li>
-            <li>Sequence: sort → late-winter root tease → plant in one wide grow box → chop into tiered canopy → grow 2–3 seasons → shallower forest pot.</li>
           </ul>
-        </div>
-      </div>
-    </section>
-
-    <section id="fortnight" class="reveal">
-      <div class="wrap">
-        <p class="kicker">Next 14 days</p>
-        <h2>Do this before heavy cuts</h2>
-        <p class="lede">Tick items as you go — saved in this browser only.</p>
-        <div class="checks" id="checklist">
-          <label class="check"><input type="checkbox" data-k="1" /><span>Move plants into bright outdoor light over 3–5 days (not straight from dark garage into full afternoon sun).</span></label>
-          <label class="check"><input type="checkbox" data-k="2" /><span>Water when the top ~2 cm of mix is dry; never leave pots in standing water.</span></label>
-          <label class="check"><input type="checkbox" data-k="3" /><span>Buy/scavenge: pine bark, scoria/blue metal, coarse sand, mesh, and a colander or crate.</span></label>
-          <label class="check"><input type="checkbox" data-k="4" /><span>Sort pots into Elm / Oak / Large-leaf piles and label them.</span></label>
-          <label class="check"><input type="checkbox" data-k="5" /><span>Hold heavy chops and root work until the Aug–mid Sep window (elm/oak), or mild spring for the large-leaf plant.</span></label>
-          <label class="check"><input type="checkbox" data-k="6" /><span>Optional: snap a large-leaf stem tip — note if sap is milky (helps confirm loquat vs fig).</span></label>
         </div>
       </div>
     </section>
 
     <section id="roadmap" class="reveal">
       <div class="wrap">
-        <p class="kicker">Multi-year roadmap</p>
-        <h2>Path to 2–3 foot trees</h2>
+        <p class="kicker">After the first build</p>
+        <h2>Same path, three projects</h2>
         <div class="timeline">
           <article>
-            <h3>Now → first late winter</h3>
-            <p>Establish outdoors, gather materials, plan chops. No emergency styling.</p>
+            <h3>Phase 0–3 · Oct 2026 → Jul 2027</h3>
+            <p>Establish all three, grow girth, photograph, plan. No heavy surgery.</p>
           </article>
           <article>
-            <h3>Late winter 1</h3>
-            <p>Elm forest into one grow box; oaks into individual grow pots; first trunk chops; light root work.</p>
+            <h3>Phase 4 · Aug–Sep 2027</h3>
+            <p>P1/P2 late winter build; P3 evergreen root/structure in September.</p>
           </article>
           <article>
-            <h3>Growing seasons 1–2</h3>
-            <p>Push fertiliser (when appropriate), tip prune, sacrifice leaders for girth, wire sparingly.</p>
+            <h3>Phase 5 · 2027–2029</h3>
+            <p>Fertilise in season, tip prune, sacrifice leaders for thickness, wire sparingly.</p>
           </article>
           <article>
-            <h3>Years 3–5</h3>
-            <p>Shallower training pots, refine pads, chase 60–90 cm finished silhouettes with taper that reads as a tree from two metres away.</p>
+            <h3>Refine · years 3–5</h3>
+            <p>Shallower pots when trunks deserve them; chase 60–90 cm silhouettes from two metres away.</p>
           </article>
         </div>
       </div>
@@ -715,8 +897,7 @@
 
   <footer>
     <div class="wrap">
-      Melbourne bonsai project plan · Chinese elm forest · English oak solos · large-leaf specimen · budget materials.
-      Open <code>index.html</code> in a browser anytime.
+      P1 Elm forest · P2 Oak solos · P3 Feijoa · Phase 0 Oct 2026 · Builds Aug–Sep 2027.
     </div>
   </footer>
 
@@ -735,7 +916,7 @@
     );
     reveals.forEach((el) => io.observe(el));
 
-    const key = "bonsai-melbourne-checklist-v1";
+    const key = "bonsai-melbourne-checklist-v3";
     const saved = JSON.parse(localStorage.getItem(key) || "{}");
     document.querySelectorAll("#checklist input[type=checkbox]").forEach((box) => {
       const k = box.dataset.k;

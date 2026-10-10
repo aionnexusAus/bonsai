@@ -11,8 +11,8 @@ alwaysApply: false
 ## Structure to preserve
 
 - Hero: brand **Bonsai** dominant, one headline, one short support line, CTA group, full-bleed plant photo.
-- Sections: identification → Melbourne calendar → soil/pots → stem prune → root prune → training/fertilise → forest → fortnight checklist → multi-year roadmap.
-- When adding plants, extend the identification section and add calendar/care caveats — do not bury new species only in prose.
+- Lead with **named projects** (goal, material, success criteria), then **Phase 0 / start-now** for the current month, then reference care (calendar, soil, prune, train, fertilise).
+- When adding plants, add a new named project (or extend an existing one) — do not leave species only as vague groups.
 
 ## Design constraints
 

@@ -1,6 +1,12 @@
 # Bonsai
 
-Melbourne bonsai grow plan — budget materials, 60–90 cm trees, Chinese elm forest plus oak and large-leaf specimens.
+Melbourne bonsai grow plan with three named projects:
+
+1. **Elm forest** — 5 or 7 Chinese elms → one group planting (~60–90 cm)
+2. **Oak solos** — English oaks as individual trees (~60–90 cm)
+3. **Feijoa solo** — pineapple guava (`Acca sellowiana`), evergreen (~60–90 cm)
+
+**Start:** Phase 0 in October (establish outdoors, sort, prep boxes). **Build:** P1/P2 in Aug–mid Sep; P3 hard root work in September (evergreen). Loquat is out of scope.
 
 ## Live site
 
