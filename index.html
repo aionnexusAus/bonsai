@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Bonsai — Melbourne Project Plan</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --ink: #15201b;
+      --moss: #2f4a3c;
+      --leaf: #4f7a5c;
+      --mist: #e6eeea;
+      --sky: #bfd0d4;
+      --sand: #d9cfc0;
+      --paper: #f4f7f5;
+      --line: rgba(21, 32, 27, 0.12);
+      --soft: rgba(21, 32, 27, 0.62);
+      --max: 1080px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      font-family: "Figtree", sans-serif;
+      background:
+        radial-gradient(1200px 600px at 10% -10%, #d7e4df 0%, transparent 55%),
+        radial-gradient(900px 500px at 100% 20%, #c9d8dc 0%, transparent 50%),
+        linear-gradient(180deg, var(--paper) 0%, var(--mist) 48%, #e9e4da 100%);
+      line-height: 1.55;
+    }
+
+    img { max-width: 100%; display: block; }
+    a { color: var(--moss); }
+
+    .wrap {
+      width: min(var(--max), calc(100% - 2rem));
+      margin-inline: auto;
+    }
+
+    /* —— Hero —— */
+    .hero {
+      position: relative;
+      min-height: 100svh;
+      display: grid;
+      align-items: end;
+      overflow: hidden;
+      color: #f4f7f5;
+    }
+
+    .hero-media {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+
+    .hero-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: 55% 40%;
+      transform: scale(1.06);
+      animation: drift 18s ease-in-out infinite alternate;
+    }
+
+    .hero-media::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(180deg, rgba(12, 22, 18, 0.18) 0%, rgba(12, 22, 18, 0.28) 42%, rgba(12, 22, 18, 0.82) 100%);
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 1;
+      padding: 0 0 4.5rem;
+      width: min(var(--max), calc(100% - 2rem));
+      margin-inline: auto;
+    }
+
+    .brand {
+      font-family: "Syne", sans-serif;
+      font-weight: 800;
+      font-size: clamp(4.2rem, 14vw, 8.5rem);
+      letter-spacing: -0.04em;
+      line-height: 0.9;
+      margin: 0 0 1rem;
+      animation: rise 0.9s ease both;
+    }
+
+    .hero h1 {
+      font-family: "Syne", sans-serif;
+      font-weight: 700;
+      font-size: clamp(1.35rem, 3.4vw, 2rem);
+      letter-spacing: -0.02em;
+      max-width: 18ch;
+      margin: 0 0 0.75rem;
+      animation: rise 0.9s ease 0.1s both;
+    }
+
+    .hero p {
+      max-width: 38ch;
+      margin: 0 0 1.5rem;
+      color: rgba(244, 247, 245, 0.88);
+      font-size: 1.05rem;
+      animation: rise 0.9s ease 0.18s both;
+    }
+
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      animation: rise 0.9s ease 0.26s both;
+    }
+
+    .btn {
+      appearance: none;
+      border: 1px solid transparent;
+      border-radius: 4px;
+      padding: 0.85rem 1.15rem;
+      font: inherit;
+      font-weight: 600;
+      text-decoration: none;
+      cursor: pointer;
+      transition: transform 160ms ease, background 160ms ease, color 160ms ease;
+    }
+
+    .btn:hover { transform: translateY(-1px); }
+    .btn-primary { background: #f4f7f5; color: var(--ink); }
+    .btn-primary:hover { background: #fff; }
+    .btn-ghost {
+      background: transparent;
+      color: #f4f7f5;
+      border-color: rgba(244, 247, 245, 0.45);
+    }
+    .btn-ghost:hover { background: rgba(244, 247, 245, 0.1); }
+
+    /* —— Sections —— */
+    section {
+      padding: 4.5rem 0;
+    }
+
+    section.reveal {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    section.reveal.in {
+      opacity: 1;
+      transform: none;
+    }
+
+    .kicker {
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--leaf);
+      margin: 0 0 0.6rem;
+    }
+
+    h2 {
+      font-family: "Syne", sans-serif;
+      font-size: clamp(1.8rem, 4vw, 2.5rem);
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      margin: 0 0 0.75rem;
+      max-width: 18ch;
+    }
+
+    .lede {
+      max-width: 58ch;
+      color: var(--soft);
+      margin: 0 0 2rem;
+      font-size: 1.05rem;
+    }
+
+    .split {
+      display: grid;
+      gap: 2rem;
+      grid-template-columns: 1.1fr 0.9fr;
+      align-items: start;
+    }
+
+    @media (max-width: 820px) {
+      .split { grid-template-columns: 1fr; }
+    }
+
+    .photo-frame {
+      border-radius: 6px;
+      overflow: hidden;
+      background: var(--sand);
+      aspect-ratio: 4 / 3;
+    }
+
+    .photo-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .caption {
+      margin-top: 0.65rem;
+      font-size: 0.88rem;
+      color: var(--soft);
+    }
+
+    /* Species list — not cards */
+    .species {
+      display: grid;
+      gap: 1.75rem;
+    }
+
+    .species-item {
+      display: grid;
+      grid-template-columns: 7rem 1fr;
+      gap: 1rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid var(--line);
+    }
+
+    @media (max-width: 560px) {
+      .species-item { grid-template-columns: 1fr; }
+    }
+
+    .species-item h3 {
+      font-family: "Syne", sans-serif;
+      margin: 0 0 0.35rem;
+      font-size: 1.25rem;
+      letter-spacing: -0.02em;
+    }
+
+    .tag {
+      display: inline-block;
+      margin-top: 0.35rem;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--moss);
+    }
+
+    .meta {
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--soft);
+      margin: 0;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.95rem;
+    }
+
+    th, td {
+      text-align: left;
+      vertical-align: top;
+      padding: 0.85rem 0.75rem 0.85rem 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    th {
+      font-size: 0.75rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--soft);
+      font-weight: 700;
+    }
+
+    .stack-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      gap: 0.9rem;
+    }
+
+    .stack-list li {
+      padding-left: 1.1rem;
+      position: relative;
+    }
+
+    .stack-list li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.55em;
+      width: 0.4rem;
+      height: 0.4rem;
+      border-radius: 1px;
+      background: var(--leaf);
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2.5rem;
+    }
+
+    @media (max-width: 760px) {
+      .two-col { grid-template-columns: 1fr; }
+    }
+
+    /* Checklist — interactive, so containers are OK */
+    .checks {
+      display: grid;
+      gap: 0.65rem;
+    }
+
+    .check {
+      display: flex;
+      gap: 0.8rem;
+      align-items: flex-start;
+      padding: 0.9rem 1rem;
+      background: rgba(255, 255, 255, 0.55);
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 160ms ease;
+    }
+
+    .check:hover { background: rgba(255, 255, 255, 0.85); }
+    .check input {
+      margin-top: 0.2rem;
+      accent-color: var(--moss);
+      width: 1.05rem;
+      height: 1.05rem;
+    }
+    .check span { flex: 1; }
+    .check input:checked + span {
+      color: var(--soft);
+      text-decoration: line-through;
+    }
+
+    .timeline {
+      display: grid;
+      gap: 0;
+      border-left: 2px solid var(--line);
+      margin-left: 0.35rem;
+      padding-left: 1.25rem;
+    }
+
+    .timeline article {
+      position: relative;
+      padding: 0 0 1.6rem;
+    }
+
+    .timeline article::before {
+      content: "";
+      position: absolute;
+      left: -1.5rem;
+      top: 0.35rem;
+      width: 0.65rem;
+      height: 0.65rem;
+      border-radius: 50%;
+      background: var(--leaf);
+      box-shadow: 0 0 0 3px var(--paper);
+    }
+
+    .timeline h3 {
+      margin: 0 0 0.35rem;
+      font-family: "Syne", sans-serif;
+      font-size: 1.1rem;
+    }
+
+    .timeline p {
+      margin: 0;
+      color: var(--soft);
+    }
+
+    .note {
+      margin-top: 1.5rem;
+      padding: 1rem 1.1rem;
+      border-left: 3px solid var(--leaf);
+      background: rgba(255, 255, 255, 0.4);
+      color: var(--soft);
+      max-width: 65ch;
+    }
+
+    footer {
+      padding: 2.5rem 0 3.5rem;
+      border-top: 1px solid var(--line);
+      color: var(--soft);
+      font-size: 0.92rem;
+    }
+
+    @keyframes drift {
+      from { transform: scale(1.06) translate3d(0, 0, 0); }
+      to { transform: scale(1.1) translate3d(-1.5%, 1%, 0); }
+    }
+
+    @keyframes rise {
+      from { opacity: 0; transform: translateY(14px); }
+      to { opacity: 1; transform: none; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .hero-media img,
+      .brand, .hero h1, .hero p, .cta-row,
+      section.reveal {
+        animation: none !important;
+        transition: none !important;
+        opacity: 1 !important;
+        transform: none !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div class="hero-media" aria-hidden="true">
+      <img src="assets/hero-stock.jpg" alt="" />
+    </div>
+    <div class="hero-inner">
+      <p class="brand">Bonsai</p>
+      <h1>A Melbourne grow plan for your garage stock</h1>
+      <p>Budget soil and pots, stem and root work, training, fertiliser, and a forest — tuned for local seasons and 60–90 cm trees.</p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="#species">See what you have</a>
+        <a class="btn btn-ghost" href="#fortnight">Start this fortnight</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section id="species" class="reveal">
+      <div class="wrap split">
+        <div>
+          <p class="kicker">Identification</p>
+          <h2>Three plants, three jobs</h2>
+          <p class="lede">Close-ups lock this in well enough to train. Keep species separate for forest work — same kind together, different kinds alone.</p>
+          <div class="species">
+            <div class="species-item">
+              <p class="meta">Group A</p>
+              <div>
+                <h3>Chinese elm <em>(Ulmus parvifolia)</em></h3>
+                <p>Small oval leaves with fine serrations on thin, wiry stems. Several pots — your forest material.</p>
+                <span class="tag">Forest + 60–90 cm specimens</span>
+              </div>
+            </div>
+            <div class="species-item">
+              <p class="meta">Group B</p>
+              <div>
+                <h3>English oak <em>(Quercus robur)</em></h3>
+                <p>Deeply lobed leaves, taller pencil trunks. Slower than elm; better as individual trees than mixed forest.</p>
+                <span class="tag">Solo upright · larger leaf scale</span>
+              </div>
+            </div>
+            <div class="species-item">
+              <p class="meta">Group C</p>
+              <div>
+                <h3>Large-leaf evergreen — likely loquat <em>(Eriobotrya japonica)</em></h3>
+                <p>Big glossy serrated leaves in the barky nursery mix. Keep as one specimen; leaf reduction takes years. If you snap a leaf and get milky sap, tell me — that would shift ID toward fig.</p>
+                <span class="tag">Solo · frost-aware</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <figure>
+          <div class="photo-frame">
+            <img src="assets/leaves-elm-oak.jpg" alt="Close-up of Chinese elm leaves beside oak leaves" />
+          </div>
+          <figcaption class="caption">Elm (small serrated) left · oak (lobed) right</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section id="calendar" class="reveal">
+      <div class="wrap">
+        <p class="kicker">Melbourne weather</p>
+        <h2>Work the seasons, not the northern books</h2>
+        <p class="lede">Cool winters with frost risk, hot dry summers, and sharp spring growth. Deciduous elm and oak want a real outdoor winter chill. Garage storage is fine short-term; permanent indoor life is not.</p>
+        <table>
+          <thead>
+            <tr>
+              <th>Window</th>
+              <th>Months</th>
+              <th>Do</th>
+              <th>Don’t</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Late winter</td>
+              <td>Aug – mid Sep</td>
+              <td>Root prune &amp; repot elm/oak; heavy trunk chops before buds open</td>
+              <td>Major root work after leaves harden</td>
+            </tr>
+            <tr>
+              <td>Spring</td>
+              <td>Sep – Nov</td>
+              <td>Wire carefully; start dilute fertiliser after recovery; harden into full sun</td>
+              <td>Full-strength feed on freshly cut roots</td>
+            </tr>
+            <tr>
+              <td>Summer</td>
+              <td>Dec – Feb</td>
+              <td>Daily water checks; raise pots off hot concrete; light tip prune</td>
+              <td>Repotting; heatwave fertiliser</td>
+            </tr>
+            <tr>
+              <td>Autumn</td>
+              <td>Mar – May</td>
+              <td>Structural wire on firmer wood; taper nitrogen</td>
+              <td>Big chops that push soft growth into frost</td>
+            </tr>
+            <tr>
+              <td>Winter</td>
+              <td>Jun – Jul</td>
+              <td>Study silhouette; keep roots barely moist; plan cuts</td>
+              <td>Letting pots freeze bone-dry</td>
+            </tr>
+          </tbody>
+        </table>
+        <p class="note">Loquat / frost-tender evergreen: delay heavy root and trunk work until nights are reliably mild (often mid–late spring in Melbourne).</p>
+      </div>
+    </section>
+
+    <section id="soil" class="reveal">
+      <div class="wrap two-col">
+        <div>
+          <p class="kicker">Soil · budget</p>
+          <h2>Drain fast, hold a little</h2>
+          <p class="lede">Nursery bark mix stays wet too long in shallow pots. Melbourne summer then cooks roots that stay soggy overnight.</p>
+          <table>
+            <thead>
+              <tr><th>Parts</th><th>Material</th><th>Role</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>2</td><td>Pine bark fines / orchid bark</td><td>Organic hold</td></tr>
+              <tr><td>2</td><td>Scoria or blue metal 5–10 mm</td><td>Air + heat buffer</td></tr>
+              <tr><td>1</td><td>Coarse sand / crushed quartz</td><td>Drainage</td></tr>
+            </tbody>
+          </table>
+          <p class="note">Optional +½ zeolite or perlite. Skip bagged garden soil. Upgrade later to akadama/pumice/lava if you want.</p>
+        </div>
+        <div>
+          <p class="kicker">Pots · budget</p>
+          <h2>Grow boxes before ceramics</h2>
+          <p class="lede">Your trunks are pencil-thin. A tiny bonsai pot now freezes that forever. Build girth for 2–4 years first.</p>
+          <ul class="stack-list">
+            <li><strong>Now–year 2:</strong> colander, laundry basket, or timber crate (~40×30×15 cm) with mesh over holes — $0–25.</li>
+            <li><strong>Forest grow-out:</strong> one wide shallow mushroom box / crate for 5–7 elms — $0–15.</li>
+            <li><strong>Training pot:</strong> plastic bonsai pot or drilled terracotta — $5–20.</li>
+            <li><strong>Display later:</strong> op-shop ceramic — $10–40.</li>
+          </ul>
+          <p class="note">Elevate on bricks/timber. No standing water in saucers. Concrete radiates summer heat into roots.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="pruning" class="reveal">
+      <div class="wrap split">
+        <div>
+          <p class="kicker">Pruning · stems</p>
+          <h2>Chop for taper, then densify</h2>
+          <p class="lede">Most of these are tall whips already near your finished height — but without trunk thickness. Height without taper reads as a stick, not a tree.</p>
+          <ul class="stack-list">
+            <li><strong>Elm forest:</strong> late winter, cut most trees to staggered heights (low / mid / hero). Leave a node facing the next leader.</li>
+            <li><strong>Oak:</strong> one strong structural chop per year; leave a sacrifice leader higher up to thicken the trunk, then cut it later.</li>
+            <li><strong>Loquat:</strong> lighter first year; remove only awkward shoots until ID/habit is settled; spring timing.</li>
+            <li><strong>Maintenance:</strong> after flush, prune back to 2–3 leaf pairs on strong shoots; remove bar branches.</li>
+          </ul>
+        </div>
+        <figure>
+          <div class="photo-frame">
+            <img src="assets/group-oak-elm.jpg" alt="Oak sapling beside Chinese elm in nursery pots" />
+          </div>
+          <figcaption class="caption">Oak (left) and elm (right) — train separately</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section id="roots" class="reveal">
+      <div class="wrap">
+        <p class="kicker">Pruning · roots</p>
+        <h2>Build a flat feeder mat</h2>
+        <p class="lede">Goal is a shallow, radial root plate that fits a future bonsai pot — not a deep nursery tap.</p>
+        <table>
+          <thead>
+            <tr><th>Step</th><th>Action</th><th>Melbourne tip</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1. Timing</td>
+              <td>Repot young trees every 1–2 years</td>
+              <td>Elm/oak: Aug–early Sep. Frost-tender evergreen: milder spring.</td>
+            </tr>
+            <tr>
+              <td>2. Unpot</td>
+              <td>Tease circling roots; wash peat gradually over 1–2 seasons if weak</td>
+              <td>Don’t strip every last speck of soil on a stressed whip.</td>
+            </tr>
+            <tr>
+              <td>3. Cut</td>
+              <td>Remove thick downward / circling roots; keep fine feeders</td>
+              <td>First session: cut about 30–40% of root mass max.</td>
+            </tr>
+            <tr>
+              <td>4. Replant</td>
+              <td>Fresh free-draining mix; water thoroughly</td>
+              <td>Shade 1–2 weeks; no fertiliser until new growth shows.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="training" class="reveal">
+      <div class="wrap two-col">
+        <div>
+          <p class="kicker">Training</p>
+          <h2>Wire lightly, grow girth hard</h2>
+          <ul class="stack-list">
+            <li><strong>Year 1:</strong> sun harden, survive, one structural chop each. Optional soft aluminium wire on 1–2 trunks; check weekly in spring.</li>
+            <li><strong>Years 2–3:</strong> let sacrifice branches run to thicken trunks, then chop. Start secondary branching. Slide forest trees while still in the grow box.</li>
+            <li><strong>Years 3–5:</strong> move strongest material into shallower training pots. Aim 60–90 cm finished height with visible taper.</li>
+          </ul>
+          <p class="note">Budget wire: aluminium from a hardware store, roughly one-third the trunk thickness. Never leave wire to bite in over summer.</p>
+        </div>
+        <div>
+          <p class="kicker">Fertilising</p>
+          <h2>Feed growth, then harden</h2>
+          <table>
+            <thead>
+              <tr><th>Phase</th><th>What</th><th>Cadence</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>After repot/chop</td><td>Nothing</td><td>3–6 weeks</td></tr>
+              <tr><td>Spring–early summer</td><td>Dilute seaweed + fish, or half-rate slow release</td><td>Liquid ~fortnightly</td></tr>
+              <tr><td>Heatwave weeks</td><td>Pause or very dilute</td><td>Skip 35°C+ stretches</td></tr>
+              <tr><td>Autumn</td><td>Lower nitrogen; seaweed OK</td><td>Monthly</td></tr>
+              <tr><td>Winter</td><td>Stop</td><td>Resume at bud swell</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section id="forest" class="reveal">
+      <div class="wrap split">
+        <figure>
+          <div class="photo-frame">
+            <img src="assets/group-overview.jpg" alt="Overview of nursery pots including elm and oak saplings" />
+          </div>
+          <figcaption class="caption">Sort by species before any group planting</figcaption>
+        </figure>
+        <div>
+          <p class="kicker">Bonsai forest</p>
+          <h2>Elms only — odd numbers</h2>
+          <p class="lede">Use the matching Chinese elms for yose-ue. Keep oaks and the large-leaf plant as solos. Start with 5 or 7 trees.</p>
+          <ul class="stack-list">
+            <li>Tallest tree slightly off-centre (not dead middle).</li>
+            <li>Cluster the next tallest nearby — a grove, not a fence line.</li>
+            <li>Shorter trees toward the front and edges; leave a clearing of negative space.</li>
+            <li>Vary lean; avoid parallel trunks.</li>
+            <li>Plant on a slight soil mound so flares can develop.</li>
+            <li>Sequence: sort → late-winter root tease → plant in one wide grow box → chop into tiered canopy → grow 2–3 seasons → shallower forest pot.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="fortnight" class="reveal">
+      <div class="wrap">
+        <p class="kicker">Next 14 days</p>
+        <h2>Do this before heavy cuts</h2>
+        <p class="lede">Tick items as you go — saved in this browser only.</p>
+        <div class="checks" id="checklist">
+          <label class="check"><input type="checkbox" data-k="1" /><span>Move plants into bright outdoor light over 3–5 days (not straight from dark garage into full afternoon sun).</span></label>
+          <label class="check"><input type="checkbox" data-k="2" /><span>Water when the top ~2 cm of mix is dry; never leave pots in standing water.</span></label>
+          <label class="check"><input type="checkbox" data-k="3" /><span>Buy/scavenge: pine bark, scoria/blue metal, coarse sand, mesh, and a colander or crate.</span></label>
+          <label class="check"><input type="checkbox" data-k="4" /><span>Sort pots into Elm / Oak / Large-leaf piles and label them.</span></label>
+          <label class="check"><input type="checkbox" data-k="5" /><span>Hold heavy chops and root work until the Aug–mid Sep window (elm/oak), or mild spring for the large-leaf plant.</span></label>
+          <label class="check"><input type="checkbox" data-k="6" /><span>Optional: snap a large-leaf stem tip — note if sap is milky (helps confirm loquat vs fig).</span></label>
+        </div>
+      </div>
+    </section>
+
+    <section id="roadmap" class="reveal">
+      <div class="wrap">
+        <p class="kicker">Multi-year roadmap</p>
+        <h2>Path to 2–3 foot trees</h2>
+        <div class="timeline">
+          <article>
+            <h3>Now → first late winter</h3>
+            <p>Establish outdoors, gather materials, plan chops. No emergency styling.</p>
+          </article>
+          <article>
+            <h3>Late winter 1</h3>
+            <p>Elm forest into one grow box; oaks into individual grow pots; first trunk chops; light root work.</p>
+          </article>
+          <article>
+            <h3>Growing seasons 1–2</h3>
+            <p>Push fertiliser (when appropriate), tip prune, sacrifice leaders for girth, wire sparingly.</p>
+          </article>
+          <article>
+            <h3>Years 3–5</h3>
+            <p>Shallower training pots, refine pads, chase 60–90 cm finished silhouettes with taper that reads as a tree from two metres away.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      Melbourne bonsai project plan · Chinese elm forest · English oak solos · large-leaf specimen · budget materials.
+      Open <code>index.html</code> in a browser anytime.
+    </div>
+  </footer>
+
+  <script>
+    const reveals = document.querySelectorAll("section.reveal");
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) {
+            e.target.classList.add("in");
+            io.unobserve(e.target);
+          }
+        });
+      },
+      { threshold: 0.12 }
+    );
+    reveals.forEach((el) => io.observe(el));
+
+    const key = "bonsai-melbourne-checklist-v1";
+    const saved = JSON.parse(localStorage.getItem(key) || "{}");
+    document.querySelectorAll("#checklist input[type=checkbox]").forEach((box) => {
+      const k = box.dataset.k;
+      box.checked = !!saved[k];
+      box.addEventListener("change", () => {
+        saved[k] = box.checked;
+        localStorage.setItem(key, JSON.stringify(saved));
+      });
+    });
+  </script>
+</body>
+</html>

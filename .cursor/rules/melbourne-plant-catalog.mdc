@@ -1,0 +1,32 @@
+---
+description: How to add and document new Melbourne-suitable bonsai species
+alwaysApply: true
+---
+
+# Expanding the plant catalog
+
+The collection will grow over time (e.g. cherry blossom / flowering cherries). Treat each new plant as a first-class entry, not a one-line mention.
+
+## When the user adds a plant
+
+1. Confirm **botanical name** if possible (common name alone is not enough for care).
+2. Check **Melbourne suitability**: winter chill, frost hardiness, summer heat/drought, outdoor vs protected.
+3. Assign a **role**: solo specimen, forest candidate, or companion — never mix species in one forest.
+4. Cover the same care topics: soil, potting, stem prune, root prune, training, fertilise — with Melbourne months.
+5. Note **leaf/flower scale** vs the 60–90 cm target (large leaves or big blooms need a longer refinement plan).
+6. Update `index.html` (and any catalog files) so the plant appears in identification + season caveats.
+
+## Melbourne shortlist (examples)
+
+| Interest | Likely species | Notes |
+|----------|----------------|-------|
+| Cherry blossom | `Prunus × yedoensis`, `P. serrulata`, cold-tolerant flowering cherry | Needs chill; late frost can spoil bloom; deciduous late-winter work |
+| Chinese elm | already in collection | Best forest starter |
+| English oak | already in collection | Slow; solo |
+
+## Do / don’t
+
+- **Do** say when a species is a poor bonsai fit or needs frost cloth in Melbourne.
+- **Do** keep budget soil/pot advice consistent with project rules.
+- **Don’t** recommend tropical/indoor-only species without a clear Melbourne caveat.
+- **Don’t** put flowering cherry into an elm forest.
